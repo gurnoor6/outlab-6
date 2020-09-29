@@ -24,8 +24,8 @@ export class FormComponent implements OnInit {
   						  };
 
   url = "https://cs251-outlab-6.herokuapp.com/initial_values/";
+  postUrl = "https://cs251-outlab-6.herokuapp.com/add_new_feedback/";
   ngOnInit(){
-  	this.getData();
   }
 
   feedbackForm = this.fb.group({
@@ -37,14 +37,24 @@ export class FormComponent implements OnInit {
 
 
   submitForm(){
-  	console.log(this.feedbackForm);
+  	console.log(this.feedbackForm.value);
+  	this.http.post(this.postUrl,this.feedbackForm.value)
+  			 .subscribe(
+  			 	(res)=>{
+  			 		console.log(res);
+  			 	},
+  			 	(err)=>{
+  			 		console.log(err);
+  			 	}
+  			 );
   }
 
   ngAfterViewInit(){
-    this.loader.nativeElement.style.display="flex";
+  	this.getData();
   }
 
   getData(){
+  	this.loader.nativeElement.style.display="flex";
   	this.http.get(this.url)
 	 .subscribe(
 	 	(data) =>{

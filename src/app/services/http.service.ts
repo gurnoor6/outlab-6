@@ -9,10 +9,13 @@ export class HttpService {
 
   constructor(private httpClient:HttpClient) {}
 	get(url){
+  // It will only retry when the request fails
 	return this.httpClient.get(url)
 						  .pipe(retry(4));
 	}
-    post(url,post){
-      return this.httpClient.post<any>(url,post);
-    }
+  post(url,data){
+    // It will only retry when the request fails
+    return this.httpClient.post(url,data)
+    						.pipe(retry(4));
+  }
 }

@@ -1,0 +1,41 @@
+<div style="width: 100%;display: flex;justify-content: space-around; ">
+	<div style="padding-top: 7.5%">
+		<h1 style="text-align: center;">Feedback</h1>
+
+		<form [formGroup]="feedbackForm" style="display: flex;flex-direction: column;" (ngSubmit)="submitForm()">
+		  <mat-form-field class="example-full-width">
+		    <mat-label>Favorite food</mat-label>
+		    <input formControlName="name" matInput>
+		  </mat-form-field>
+
+		  <br>
+
+		  <mat-form-field class="example-full-width">
+		    <mat-label>Favorite food</mat-label>
+		    <input formControlName="email" matInput placeholder="Ex. Pizza" value="Sushi">
+		  </mat-form-field>
+
+		  <br>
+
+		  <mat-radio-group formControlName="feedback">
+		  	  <label>Feedback</label>  
+		  	  <br>
+			  <mat-radio-button value="ok"> Great </mat-radio-button>
+			  <br>
+			  <mat-radio-button  value="2">Okay</mat-radio-button>
+			  <br>
+			  <mat-radio-button value="3">Not Good</mat-radio-button>
+		  </mat-radio-group>
+
+		  <br>
+
+		  <mat-form-field class="example-full-width">
+		    <mat-label>Leave a comment</mat-label>
+		    <textarea formControlName="comments" matInput placeholder="Ex. It makes me feel..."></textarea>
+		  </mat-form-field>
+		  <button mat-stroked-button color="accent" type="submit">Accent</button>
+		</form>
+	</div>
+</div>
+
+{{defaultName}}

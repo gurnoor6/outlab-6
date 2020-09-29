@@ -22,4 +22,14 @@ export const shrink = trigger('shrink',[
 		query(':self',animate("0.1s")),
 	])
 
-])
+]);
+
+
+export const routeAnimations = trigger('routeAnimations',[
+	transition('*<=>*',[
+		style({
+			transition:'transformX(1500px)'
+		}),
+		animate("1s"),
+	])
+]);

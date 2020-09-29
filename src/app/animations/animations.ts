@@ -11,13 +11,11 @@ import {
 
 export const shrink = trigger('shrink',[
 	state('big',style({
-		width:"80%",
-		// transform:"translateX(0%)"
+		width:"100%",
 	})),
 
 	state('small',style({
-		width:"40%",
-		// transform:"translateX(-50%)"
+		width:"50%",
 	})),
 
 	transition('big<=>small',[

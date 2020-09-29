@@ -26,10 +26,10 @@ export const shrink = trigger('shrink',[
 
 
 export const routeAnimations = trigger('routeAnimations',[
-	transition('*<=>*',[
-		animate("1s",keyframes([
-			style({transform:"translateX(500px)"}),
-			style({transform:"translateX(0)"})
-		])),
+	transition('formPage=>contactPage',[
+		style({
+			transform:'translateX(-500px)'
+		}),
+		animate("0.1s"),
 	])
 ]);

@@ -15,8 +15,7 @@ export class FormComponent implements OnInit {
 
   @ViewChild('loader')
   loader:any;
-
-
+  error = false;
   formData : FormFields = {
   							name:'',
   							email:'',
@@ -24,7 +23,7 @@ export class FormComponent implements OnInit {
   							comment:'',
   						  };
 
-  url = "https://cs251-outlab-6.herokuapp.com/initial_valus/";
+  url = "https://cs251-outlab-6.herokuapp.com/initial_values/";
   ngOnInit(){
   	this.getData();
   }
@@ -52,9 +51,11 @@ export class FormComponent implements OnInit {
 	 		this.formData = {...(data as FormFields)};
 	 		this.feedbackForm.setValue(this.formData);
 	 		this.loader.nativeElement.style.display="none";
+	 		this.error=false;
 	 	},
 	 	(error)=>{
-	 		console.log(error);
+	 		this.error=true;
+	 		this.loader.nativeElement.style.display="none";
 	 	}
 	 )
   }

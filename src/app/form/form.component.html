@@ -2,10 +2,13 @@
 	<div style="padding-top: 7.5%">
 		<h1 style="text-align: center;">Feedback</h1>
 
-		<form [formGroup]="feedbackForm" style="display: flex;flex-direction: column;" (ngSubmit)="submitForm()">
+		<form [formGroup]="feedbackForm" #formDirective="ngForm" style="display: flex;flex-direction: column;" (ngSubmit)="submitForm(formDirective)">
 		  <mat-form-field class="example-full-width">
 		    <mat-label>Name</mat-label>
 		    <input formControlName="name" matInput placeholder="example">
+		    <mat-error *ngIf="feedbackForm.controls.name.touched && feedbackForm.controls.name.invalid">
+	          <span *ngIf="feedbackForm.controls.name.errors.required">This field is mandatory.</span>
+	        </mat-error>
 		  </mat-form-field>
 
 		  <br>
@@ -13,6 +16,10 @@
 		  <mat-form-field class="example-full-width">
 		    <mat-label>Email</mat-label>
 		    <input formControlName="email" matInput placeholder="abc@example.com">
+		    <mat-error *ngIf="feedbackForm.controls.email.touched && feedbackForm.controls.email.invalid">
+	          <span *ngIf="feedbackForm.controls.email.errors.required">This field is mandatory.</span>
+	          <span *ngIf="feedbackForm.controls.email.errors.pattern">This field is invalid.</span>
+	        </mat-error>
 		  </mat-form-field>
 
 		  <br>
@@ -33,12 +40,12 @@
 		    <mat-label>Any Comments (Please don't say no comments xD)</mat-label>
 		    <textarea formControlName="comment" matInput placeholder="This is the best submission! xD"></textarea>
 		  </mat-form-field>
-		  <button mat-raised-button color="primary" type="submit">Submit</button>
+		  <button [disabled]="!feedbackForm.valid" mat-raised-button color="primary" type="submit">Submit</button>
 		</form>
 	</div>
 </div>
 
-<p *ngIf="error" style="text-align: center;margin-top: 32px;color: red">Unfortunately Some Error Occured. The server is not Responding. Try again in a while</p>
+<mat-error *ngIf="error" style="text-align: center;margin-top: 32px">Unfortunately Some Error Occured. The server is not Responding. Try again in a while</mat-error>
 <p *ngIf="success" style="text-align: center;margin-top: 32px;color: green">Thank you for your feedback :)</p>
 
 <div #loader class="loader-div">

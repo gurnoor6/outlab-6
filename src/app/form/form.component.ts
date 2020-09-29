@@ -21,6 +21,10 @@ export class FormComponent implements OnInit {
   error = false;
   success = false;
 
+  // for form validation
+  emailRegx = /^(([^<>+()\[\]\\.,;:\s@"-#$%&=]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
+
+
   // initialise the form data
   initialFormData : FormFields = {
   							name:'',
@@ -38,18 +42,21 @@ export class FormComponent implements OnInit {
 
   // set the reactive form variable
   feedbackForm = this.fb.group({
-  	name: [this.formData.name],
-  	email:[this.formData.email],
+  	name: [this.formData.name, Validators.required],
+  	email:[this.formData.email, [Validators.required, Validators.pattern(this.emailRegx)]],
   	feedback:[this.formData.feedback,Validators.required],
   	comment:[this.formData.comment]
   });
 
 
   // submit the form
-  submitForm(){
+  submitForm(formDirective){
+  	if(!this.feedbackForm.valid){
+  		return;
+  	}
+
   	// start the loader
   	this.loader.nativeElement.style.display="flex";
-  	console.log(this.feedbackForm.value);
 
   	// this is how we call http post on reactive form
   	this.http.post(this.postUrl,this.feedbackForm.value)
@@ -65,15 +72,15 @@ export class FormComponent implements OnInit {
   			 		this.loader.nativeElement.style.display="none";
 
   			 		// reset the form data
+  			 		formDirective.resetForm();
+  			 		this.feedbackForm.reset();
   			 		this.feedbackForm.setValue(this.initialFormData);
-  			 		console.log(res);
   			 	},
 
   			 	// show the error on screen
   			 	(err)=>{
   			 		this.error = true;
   			 		this.loader.nativeElement.style.display="none";
-  			 		console.log(err);
   			 	}
   			 );
   }

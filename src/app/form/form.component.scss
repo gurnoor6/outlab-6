@@ -1,3 +1,15 @@
 mat-form-field{
 	width:350px;
 }
+
+.loader-div{
+	position: absolute;
+	width: 100vw;
+	height: 100%;
+	background-color: rgba(18,18,18,0.4);
+	top:0;
+	display: none;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}

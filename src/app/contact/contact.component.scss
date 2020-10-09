@@ -6,7 +6,6 @@ $transition-func: ease-in-out;
 	height:80vh;
 	justify-content: space-around;
 	align-items: center;
-
 	mat-card{
 		text-align: center;
 		width:30vw;
@@ -54,5 +53,46 @@ $transition-func: ease-in-out;
 	mat-icon:last-child{
 		padding-bottom:0;
 		margin-bottom: 0;
+	}
+}
+
+@media screen and (max-width:1196px){
+	.main-div{
+		justify-content: space-around;
+		width:100vw;
+		mat-card{
+			width:40vw;
+		}
+	}
+}
+
+@media screen and (max-width:992px){
+	.main-div{
+		flex-direction: column;
+		height:100%;
+		mat-card{
+			width:50%;
+			margin-bottom: 64px;
+		}
+	}
+
+	p.lead{
+		margin-bottom: 32px !important;
+	}
+}
+
+@media screen and (max-width:672px){
+	.main-div{
+		mat-card{
+			width:80%;
+		}
+	}
+}
+
+@media screen and (max-width:550px){
+	.main-div{
+		mat-card{
+			width:90%;
+		}
 	}
 }

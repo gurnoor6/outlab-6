@@ -1,0 +1,9 @@
+button{
+    &:focus{
+        outline: 0;
+    }
+}
+
+.buttons button{
+    margin-right: 16px;
+}

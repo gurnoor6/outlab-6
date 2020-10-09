@@ -2,13 +2,11 @@
 
 @include mat-core();
 
-$my-theme-primary: mat-palette($mat-indigo);
-$my-theme-accent:  mat-palette($mat-pink);
+$my-theme-primary: mat-palette($mat-blue-grey);
+$my-theme-accent:  mat-palette($mat-green, A200, A100, A400);
 $my-theme-warn:    mat-palette($mat-red);
-$my-theme-foreground: mat-palette($mat-grey);
-$my-theme-background: mat-palette($mat-grey);
 $my-theme: mat-dark-theme($my-theme-primary,$my-theme-accent,$my-theme-warn);
 
-// .my-dark-theme{
-    // @include angular-material-theme($my-theme);
-// }
+.my-dark-theme{
+    @include angular-material-theme($my-theme);
+}

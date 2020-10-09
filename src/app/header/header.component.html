@@ -1,10 +1,14 @@
 <mat-toolbar color="primary" style="display: flex;justify-content: space-between">
-<!--     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button> -->
-    <span>The Form App</span>
-    <div>
-      <button mat-stroked-button (click)="goTo('contact')">Contact Page</button>
-      <button mat-stroked-button (click)="goTo('form')">Form</button>
+    <span (click)="goTo('contact')" style="cursor: pointer;">The Form App</span>
+    <div class="buttons">
+      <button mat-flat-button color="accent" (click)="goTo('contact')">Contact Page</button>
+      <button mat-flat-button color="accent" (click)="goTo('form')">Form</button>
+      <mat-slide-toggle #slider
+          class="example-margin"
+          color="green"
+          checked="false"
+          (change)="toggleDarkMode(slider)">
+          Dark Mode!
+      </mat-slide-toggle>
     </div>
 </mat-toolbar>

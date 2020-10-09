@@ -17,4 +17,13 @@ export class HeaderComponent implements OnInit {
   	this.router.navigate([link]);
   }
 
+  toggleDarkMode(el){
+    if(el.checked){
+      document.querySelector('body').classList.add('my-dark-theme');
+    }
+    else{
+      document.querySelector('body').classList.remove('my-dark-theme');
+    }
+  }
+
 }

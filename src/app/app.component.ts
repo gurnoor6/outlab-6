@@ -12,7 +12,6 @@ import {routeAnimations} from './animations/animations';
 export class AppComponent {
   title = 'outlab6';
   prepareRoute(outlet) {
-      console.log(outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation);
       return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit,ChangeDetectorRef } from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -6,11 +6,23 @@ import {Router} from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit,AfterViewInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+              private cdr: ChangeDetectorRef) { }
+  @ViewChild('slider') 
+  slider:any;
 
-  ngOnInit(): void {
+
+  ngOnInit(){
+  }
+
+  ngAfterViewInit(){
+    if( !(localStorage.getItem("darkMode")===null) ){
+      this.slider.checked = true;
+      this.toggleDarkMode(this.slider);
+      this.cdr.detectChanges();
+    }
   }
 
   goTo(link){
@@ -20,9 +32,11 @@ export class HeaderComponent implements OnInit {
   toggleDarkMode(el){
     if(el.checked){
       document.querySelector('body').classList.add('my-dark-theme');
+      localStorage.setItem("darkMode","yes");
     }
     else{
       document.querySelector('body').classList.remove('my-dark-theme');
+      localStorage.removeItem("darkMode");
     }
   }
 

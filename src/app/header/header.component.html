@@ -1,14 +1,29 @@
-<mat-toolbar color="primary" style="display: flex;justify-content: space-between">
-    <span (click)="goTo('contact')" style="cursor: pointer;">The Form App</span>
-    <div class="buttons">
-      <button mat-flat-button color="accent" (click)="goTo('contact')">Contact Page</button>
-      <button mat-flat-button color="accent" (click)="goTo('form')">Form</button>
-      <mat-slide-toggle #slider
-          class="example-margin"
-          color="green"
-          checked="false"
-          (change)="toggleDarkMode(slider)">
-          Dark Mode!
-      </mat-slide-toggle>
-    </div>
-</mat-toolbar>
+<mat-drawer #drawer class="example-sidenav" mode="side">
+	<mat-toolbar color="primary" class="spacer"> 
+		<span>Menu</span>
+		<mat-icon class="close-icon" (click)="drawer.toggle()" style="font-size: 27px;text-align: right;">close</mat-icon>
+	</mat-toolbar>
+	<mat-list role="list">
+		<mat-list-item role="listitem">
+			<button mat-flat-button color="accent" (click)="goTo('contact')">Contact Page</button>
+		</mat-list-item>
+		<mat-list-item role="listitem">
+			<button mat-flat-button color="accent" (click)="goTo('form')">Form</button>
+		</mat-list-item>
+		<mat-list-item role="listitem" style="text-align: center; width: 100%">
+			<mat-slide-toggle #slider
+				class="example-margin"
+				color="green"
+				checked="false"
+				(change)="toggleDarkMode(slider)">
+				Dark Mode!
+			</mat-slide-toggle>
+		</mat-list-item>
+	</mat-list>
+</mat-drawer>
+<mat-drawer-container>
+	<mat-toolbar color="primary">
+		<mat-icon (click)="drawer.toggle()" class="mr-4">menu</mat-icon>
+		<span (click)="goTo('contact')" style="cursor: pointer;">The Form App</span>
+	</mat-toolbar>
+</mat-drawer-container>

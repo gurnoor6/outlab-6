@@ -7,3 +7,28 @@ button{
 .buttons button{
     margin-right: 16px;
 }
+
+mat-drawer {
+    width: 280px;
+}
+
+
+mat-list-item{
+    button{
+        width:100%;
+        margin:0;
+    }
+}
+
+.close-icon{
+    flex: 1 1 auto;
+}
+
+.spacer{
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-icon{
+    cursor: pointer;
+}

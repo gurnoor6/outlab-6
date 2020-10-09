@@ -11,14 +11,14 @@ import {shrink} from '../animations/animations';
 })
 export class ContactComponent implements OnInit {
 
-  state = "big";
+  state: any[] = ["big","big"];
   constructor() { }
 
   ngOnInit() {
   }
 
-  toggleState(){
-  	this.state=="big"?this.state="small":this.state="big";
+  toggleState(idx){
+  	this.state[idx]=="big"?this.state[idx]="small":this.state[idx]="big";
   }
 
 }

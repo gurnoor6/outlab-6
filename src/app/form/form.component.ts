@@ -8,7 +8,7 @@ import {FormFields} from '../interfaces/formFields';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit,AfterViewInit {
 
   constructor(private fb: FormBuilder,
   			  private http:HttpService) { }
@@ -109,5 +109,4 @@ export class FormComponent implements OnInit {
 	 	}
 	 )
   }
-
 }

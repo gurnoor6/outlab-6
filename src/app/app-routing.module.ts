@@ -7,7 +7,7 @@ import { FormComponent } from './form/form.component';
 const routes: Routes = [
 	{path:'form',component:FormComponent,data:{animation:'formPage'}},
 	{path:'contact',component:ContactComponent,data:{animation:'contactPage'}},
-	{path:'**',component:ContactComponent,data:{animation:'contactPage'}}
+	{path:'**',data:{animation:'contactPage'}, redirectTo:'/contact'}
 ];
 
 @NgModule({

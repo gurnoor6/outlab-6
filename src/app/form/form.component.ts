@@ -1,12 +1,13 @@
-import { Component, OnInit,ViewChild,AfterViewInit } from '@angular/core';
+import { Component, OnInit,ViewChild,AfterViewInit} from '@angular/core';
 import {HttpService} from '../services/http.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import {FormFields} from '../interfaces/formFields';
 
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit,AfterViewInit {
 
@@ -34,10 +35,20 @@ export class FormComponent implements OnInit,AfterViewInit {
   						  };
   formData : FormFields = this.initialFormData;
 
+  // response for post data 
+  postResponse;
+
   // set the get and post urls
   url = "https://cs251-outlab-6.herokuapp.com/initial_values/";
   postUrl = "https://cs251-outlab-6.herokuapp.com/add_new_feedback/";
   ngOnInit(){
+    // subscribe to changes in the form to reflect the,
+    // in a typescript variable
+    this.feedbackForm.valueChanges.subscribe(
+        (form)=>{
+          this.formData = form;
+        }
+    );
   }
 
   // set the reactive form variable
@@ -47,6 +58,7 @@ export class FormComponent implements OnInit,AfterViewInit {
   	feedback:[this.formData.feedback,Validators.required],
   	comment:[this.formData.comment]
   });
+
 
 
   // submit the form
@@ -67,6 +79,9 @@ export class FormComponent implements OnInit,AfterViewInit {
 
   			 		// show success text
   			 		this.success=true;
+
+            // set the post response in a variable
+            this.postResponse = (res as FormFields);
 
   			 		// stop the loader
   			 		this.loader.nativeElement.style.display="none";

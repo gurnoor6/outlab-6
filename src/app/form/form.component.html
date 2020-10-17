@@ -1,4 +1,4 @@
-<div style="width: 100%;display: flex;justify-content: space-around; ">
+<div class="encloser-div">
 	<div style="padding-top: 7.5%">
 		<h1 style="text-align: center;">Feedback</h1>
 
@@ -42,12 +42,24 @@
 		  </mat-form-field>
 		  <button [disabled]="!feedbackForm.valid" mat-raised-button color="primary" type="submit">Submit</button>
 		</form>
+		<mat-error *ngIf="error" style="text-align: center;margin-top: 32px">Unfortunately Some Error Occured. The server is not Responding. Try again in a while</mat-error>
+		<p *ngIf="success" style="text-align: center;margin-top: 32px;color: green">Thank you for your feedback :)</p>
+	</div>
+	<div class="response-div pt-5">
+		<div *ngIf="formData">
+			<p class="current-values-header text-center text-md-left">Current Two Way Bindings</p>
+			<p *ngFor="let item of formData | keys">
+				{{item.key}} -> {{item.value}}
+			</p>
+		</div>
+		<div *ngIf="postResponse">
+			<p style="text-align: center;margin-top: 32px;color: green">The following response has been recorded!</p>
+			<p *ngFor="let item of postResponse | keys">
+				{{item.key}} -> {{item.value}} 
+			</p>
+		</div>
 	</div>
 </div>
-
-<mat-error *ngIf="error" style="text-align: center;margin-top: 32px">Unfortunately Some Error Occured. The server is not Responding. Try again in a while</mat-error>
-<p *ngIf="success" style="text-align: center;margin-top: 32px;color: green">Thank you for your feedback :)</p>
-
 <div #loader class="loader-div">
 	<mat-spinner>
 	</mat-spinner>

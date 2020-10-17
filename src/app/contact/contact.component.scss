@@ -1,6 +1,10 @@
+@import '~@angular/material/theming';
+
 $transition-time: 0.25s;
 $transition-func: ease-in-out;
-
+$fa-size: 28px;
+$my-theme-accent:  mat-palette($mat-blue);
+$my-link-color: mat-color($my-theme-accent);
 .main-div{
 	display: flex;
 	height:80vh;
@@ -24,6 +28,7 @@ $transition-func: ease-in-out;
 				height: 200px;
 				width:100%;
 				object-fit: cover;
+				object-position: top;
 				border-radius: 24px;
 				box-shadow: 0 0 6px;
 				cursor: pointer;
@@ -39,6 +44,19 @@ $transition-func: ease-in-out;
 			}
 		}
 	}
+}
+
+.fa{
+	font-size:$fa-size;
+	margin-bottom: 8px;
+	cursor: pointer;
+	&:last-child{
+		margin-bottom:0px;
+	}
+}
+
+.description a{
+	color: $my-link-color;
 }
 
 .social-media{

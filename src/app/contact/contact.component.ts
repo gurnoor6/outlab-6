@@ -21,4 +21,8 @@ export class ContactComponent implements OnInit {
   	this.state[idx]=="big"?this.state[idx]="small":this.state[idx]="big";
   }
 
+  open(link){
+    window.open(link);
+  }
+
 }

@@ -26,13 +26,15 @@ import { FormComponent } from './form/form.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import {KeysPipe} from './pipes';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ContactComponent,
-    FormComponent
+    FormComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

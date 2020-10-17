@@ -22,8 +22,15 @@
 	</mat-list>
 </mat-drawer>
 <mat-drawer-container>
-	<mat-toolbar color="primary">
-		<mat-icon (click)="drawer.toggle()" class="mr-4">menu</mat-icon>
-		<span (click)="goTo('contact')" style="cursor: pointer;">The Form App</span>
+	<mat-toolbar color="primary" style="justify-content: space-between;">
+		<div>
+			<mat-icon (click)="drawer.toggle()" class="mr-4" style="transform: translateY(4px);">menu</mat-icon>
+			<span (click)="goTo('contact')" style="cursor: pointer;">The Form App</span>
+		</div>
+		<div>
+			<button mat-flat-button color="accent" (click)="goTo('contact')">Contact Page</button>
+			&nbsp;
+			<button mat-flat-button color="accent" (click)="goTo('form')">Form</button>
+		</div>
 	</mat-toolbar>
 </mat-drawer-container>

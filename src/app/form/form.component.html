@@ -46,9 +46,9 @@
 		<p *ngIf="success" style="text-align: center;margin-top: 32px;color: green">Thank you for your feedback :)</p>
 	</div>
 	<div class="response-div pt-5">
-		<div *ngIf="formData">
+		<div *ngIf="feedbackForm">
 			<p class="current-values-header text-center text-md-left">Current Two Way Bindings</p>
-			<p *ngFor="let item of formData | keys">
+			<p *ngFor="let item of feedbackForm.value | keys">
 				{{item.key}} -> {{item.value}}
 			</p>
 		</div>
@@ -59,6 +59,9 @@
 			</p>
 		</div>
 	</div>
+</div>
+<div class="text-center mt-5">
+	<button mat-raised-button color="accent" (click)="test()">Test Model to View Binding</button>
 </div>
 <div #loader class="loader-div">
 	<mat-spinner>

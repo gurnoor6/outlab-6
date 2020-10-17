@@ -42,16 +42,13 @@ export class FormComponent implements OnInit,AfterViewInit {
   url = "https://cs251-outlab-6.herokuapp.com/initial_values/";
   postUrl = "https://cs251-outlab-6.herokuapp.com/add_new_feedback/";
   ngOnInit(){
-    // subscribe to changes in the form to reflect the,
-    // in a typescript variable
-    this.feedbackForm.valueChanges.subscribe(
-        (form)=>{
-          this.formData = form;
-        }
-    );
   }
 
   // set the reactive form variable
+  // this variable is responsible for 2 way binding.
+  // To set from model to view, use patchValue/setValue
+  // to set from view to model, can directly use variable.value | key
+  // where key is the custom defineed pipe
   feedbackForm = this.fb.group({
   	name: [this.formData.name, Validators.required],
   	email:[this.formData.email, [Validators.required, Validators.pattern(this.emailRegx)]],
@@ -123,5 +120,11 @@ export class FormComponent implements OnInit,AfterViewInit {
 	 		this.loader.nativeElement.style.display="none";
 	 	}
 	 )
+  }
+
+  test(){
+    this.feedbackForm.patchValue({
+      name:"new Name",
+    })
   }
 }

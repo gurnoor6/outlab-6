@@ -1,0 +1,25 @@
+https://www.youtube.com/watch?v=wPT3K3w6JtU
+https://www.techiediaries.com/angular-material-navigation-toolbar-sidenav/#:~:text=The%20Material%20toolbar%20components%20are,for%20your%20Angular%2010%20application.&text=We%20use%20a%20primary%20color%20for%20our%20toolbar.
+https://stackoverflow.com/questions/39956579/angular2-reactive-forms-formcontrol-for-radio-buttons
+https://www.youtube.com/watch?v=-7hS1mZKT2Y&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ&index=50
+https://stackoverflow.com/questions/39766029/angular2-reactive-forms-set-default-value-for-form-fields-with-dropdown
+https://loading.io/spinner/
+https://stackoverflow.com/questions/51905963/retry-http-requests-in-angular-6
+https://medium.com/@vivek0208/create-form-using-angular-material-f2472dab1687
+https://stackoverflow.com/questions/53472222/angular-validation-messages-appears-after-reset-form
+
+// responsive toolbar
+https://stackoverflow.com/questions/43200545/create-a-responsive-toolbar-using-angular-material
+https://medium.com/javascript-in-plain-english/create-a-responsive-toolbar-in-angular-using-flex-layout-c6d83ff8258e
+
+// custom theme 
+https://levelup.gitconnected.com/angular-material-dark-mode-in-3-steps-b9421bfc184b
+
+// stacked card
+https://www.outsystems.com/blog/posts/gestures_glamour_swipeable_stacked_cards/
+
+https://stackoverflow.com/questions/35534959/access-key-and-value-of-object-using-ngfor
+https://github.com/gurnoor6/moodiportal
+https://github.com/gurnoor6/lets-connect
+https://github.com/gurnoor6/eduapp
+https://regexlib.com/Search.aspx?k=email&AspxAutoDetectCookieSupport=1
